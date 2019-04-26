@@ -2,14 +2,14 @@
 Este programa usa o sistema de comunicação sem fio do Micro:bit para enviar uma mensagem para outro Micro:bit. 
 
 ## Como funciona
-O programa inicia definindo um grupo de rádio.
+O programa começa definindo um grupo de rádio.
 
 ```blocks
 radio.setGroup(1)
 ```
-Todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||``` vão receber o conteúdo das mensagens enviadas.
+Todos os Micro:bits configurados no ```||radio:definir grupo do rádio (1)||``` vão receber o conteúdo das mensagens enviadas.
 
-Ao pressionar o botão A do Micro:bit o texto "Mensagem A" é enviado para todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||```.
+Ao pressionar o botão A do Micro:bit o texto "Mensagem A" é enviado para todos os Micro:bits configurados no ```||radio:grupo de rádio (1)||```.
 ```blocks
 input.onButtonPressed(Button.A, function () {
     radio.sendString("Mensagem A")
@@ -17,7 +17,7 @@ input.onButtonPressed(Button.A, function () {
 })
 ```
 
-Ao pressionar o botão B do Micro:bit o texto "Mensagem B" é enviado para todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||```.
+Ao pressionar o botão B do Micro:bit o texto "Mensagem B" é enviado para todos os Micro:bits configurados no ```||radio:grupo do rádio (1)||```.
 
 ```blocks
 input.onButtonPressed(Button.B, function () {
@@ -26,52 +26,30 @@ input.onButtonPressed(Button.B, function () {
 })
 ```
 
-## Como funciona
-1. [Baixe o programa](https://youtu.be/3d71vvRIwuY?t=1m16s) no seu computador.
-1. [Conecte](https://youtu.be/3d71vvRIwuY?t=2m12s) o Micro:bit e [transfira] o arquivo HEX.
+## Como enviar a mensagem secreta
+Para enviar uma mensagem "secreta" é preciso que você e o receptor da mensagem estejam no mesmo canal de comunicação, ou seja, no mesmo grupo de rádio. Você pode escolher um valor de 0 a 255.
+Então, primeiro você deve definir com o grupo que você vai enviar mensagens qual será o código do grupo de comunicação.
+Por exemplo, se vocês combinarem que o grupo vai ter o número 43, altere o ```||radio:definir grupo do rádio||``` de 1 para 43.
+
+```blocks
+radio.setGroup(43)
+```
+
+Depois disso, basta você incluir o texto da mensagem que será enviada. Você pode colocar uma mensagem para o botão A ou botão B do Micro:bit. Por exemplo, para colocar uma nova mensagem no botão A você deverá alterar o comando ```||radio:envia cadeia de caracteres||```
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    radio.sendString("Mensagem secreta A")
+    basic.showString("A")
+})
+```
+
+## Transfira o programa para o Micro:bit
+Agora que o programa está pronto, transfira ele para a placa do Micro:bit.
+1. Baixe o programa no seu computador.
+1. Conecte o Micro:bit e copie o arquivo HEX.
 1. Ao término da transferência, o programa iniciará automaticamente em seu Micro:bit.
-
-## Como incluir o seu nome
-[O programa funciona](https://youtu.be/3d71vvRIwuY?t=5m21s) por meio de um *loop* (ou repetição) infinito chamado ```||basic:sempre||``` em que o bloco  ```||basic:mostrar string||``` define qual o texto que será apresentado no painel de LEDs do Micro:bit. 
-
-1. [Para alterar o texto](https://youtu.be/3d71vvRIwuY?t=5m58s) apresentado pelo Micro:bit altere o texto (*string*) presente no bloco ```||basic:mostrar string||```.
-
-Após a alteração [confira o resultado no simulador](https://youtu.be/3d71vvRIwuY?t=6m21s) ou baixando a nova versão do código no seu Micro:bit.
-
-## Mostrando dois nomes
-É possível fazer com que o programa [apresente mais de um nome](https://youtu.be/3d71vvRIwuY?t=7m10s) de cada vez. Veja abaixo:
-1. Vá até o grupo ```||basic:Básico||``` e arraste mais um bloco ``||basic:mostrar string||`` logo abaixo do primeiro nome. Você pode repetir este processo e incluir quantos nomes quiser.
-
-```blocks
-basic.forever(function () {
-    basic.showString("Nome 1")
-    basic.showString("Nome 2")
-})
-```
-Após a alteração [confira o resultado no simulador](https://youtu.be/3d71vvRIwuY?t=8m20s) ou baixando a nova versão do código no seu Micro:bit.
-
-## Incluindo imagens
-Também é possível [incluir imagens para separar cada nome](https://youtu.be/3d71vvRIwuY?t=8m51s). Veja abaixo como fazer.
-1. Usando o grupo ```||basic:Básico||``` [arraste o bloco](https://youtu.be/3d71vvRIwuY?t=8m57s) ```||basic:mostrar ícone||``` entre o primeiro e o segundo nome.
-1. [Escolha um ícone](https://youtu.be/3d71vvRIwuY?t=9m25s) na lista.
-1. Ainda usando o grupo ```||basic:Básico||``` [arraste o bloco](https://youtu.be/3d71vvRIwuY?t=9m49s) ```||basic:mostrar leds||``` logo abaixo do bloco com o ícone. Deixando o conteúdo do ```||basic:mostrar leds||``` vazio o Micro:bit vai desligar os LEDs evitando que o segundo nome se misture com os LEDs do ícone.
-
-```blocks
-basic.forever(function () {
-    basic.showString("Nome 1")
-    basic.showIcon(IconNames.No)
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-    basic.showString("Nome 2")
-})
-```
-Pronto! Agora que você já viu como incluir nomes e ícones [experimente outras modificações](https://youtu.be/3d71vvRIwuY?t=11m46s) no programa como, por exemplo, acrescente outros nomes, mude a [ordem de apresentação dos ícones](https://youtu.be/3d71vvRIwuY?t=12m03s) e transfira o resultado final [para o hardware do Micro:bit](https://youtu.be/3d71vvRIwuY?t=14m00s).
+1. Pressione o botão A ou B. Verifique na placa do outro grupo a mensagem enviada.
 
 ## Créditos
-Esta atividade foi criada pelo [CRIATIVIDADE.digital](https://criatividade.digital)
-
+Esta atividade foi criada pelo [CRIATIVIDADE.digital](https://criatividade.digital).
