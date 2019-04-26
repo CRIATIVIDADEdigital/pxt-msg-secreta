@@ -7,7 +7,24 @@ O programa inicia definindo um grupo de rádio.
 ```blocks
 radio.setGroup(1)
 ```
-Todos os Micro:bits configurados no ```||radio:setGroup(1)||``` vão receber o conteúdo das mensagens enviadas.
+Todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||``` vão receber o conteúdo das mensagens enviadas.
+
+Ao pressionar o botão A do Micro:bit o texto "Mensagem A" é enviado para todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||```.
+```blocks
+input.onButtonPressed(Button.A, function () {
+    radio.sendString("Mensagem A")
+    basic.showString("A")
+})
+```
+
+Ao pressionar o botão B do Micro:bit o texto "Mensagem B" é enviado para todos os Micro:bits configurados no ```||radio:definir grupo de rádio (1)||```.
+
+```blocks
+input.onButtonPressed(Button.B, function () {
+    radio.sendString("Mensagem B")
+    basic.showString("B")
+})
+```
 
 ## Como funciona
 1. [Baixe o programa](https://youtu.be/3d71vvRIwuY?t=1m16s) no seu computador.
