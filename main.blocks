@@ -1,12 +1,74 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <variables></variables>
-  <block type="device_forever" x="0" y="0">
+  <variables>
+    <variable type="" id="w*zmpNcb,x%vMl1z[RvM">name</variable>
+    <variable type="" id="(h~^mW~^(-a`99~Q#3vf">value</variable>
+    <variable type="" id="3B1{s%TEM.NK2mjF3nA~">receivedString</variable>
+  </variables>
+  <block type="pxt-on-start" x="6" y="11">
+    <statement name="HANDLER">
+      <block type="radio_set_group">
+        <value name="ID">
+          <shadow type="math_number_minmax">
+            <mutation min="0" max="255" label="Id"></mutation>
+            <field name="SLIDER">1</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="device_button_event" x="4" y="172">
+    <field name="NAME">Button.A</field>
+    <statement name="HANDLER">
+      <block type="radio_datagram_send_string">
+        <value name="msg">
+          <shadow type="text">
+            <field name="TEXT">Mensagem do botão A</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="device_print_message">
+            <value name="text">
+              <shadow type="text">
+                <field name="TEXT">A</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="device_button_event" x="6" y="377">
+    <field name="NAME">Button.B</field>
+    <statement name="HANDLER">
+      <block type="radio_datagram_send_string">
+        <value name="msg">
+          <shadow type="text">
+            <field name="TEXT">Mensagem do botão B</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="device_print_message">
+            <value name="text">
+              <shadow type="text">
+                <field name="TEXT">B</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="radio_on_string" x="6" y="579">
+    <field name="HANDLER_receivedString" id="3B1{s%TEM.NK2mjF3nA~" variabletype="">receivedString</field>
     <statement name="HANDLER">
       <block type="device_print_message">
         <value name="text">
-          <shadow type="text">
-            <field name="TEXT">Coloque seu nome aqui</field>
+          <shadow type="text" id=".d0MiQVXPs@kvVtJa(8%">
+            <field name="TEXT">Hello!</field>
           </shadow>
+          <block type="variables_get">
+            <field name="VAR" id="3B1{s%TEM.NK2mjF3nA~" variabletype="">receivedString</field>
+          </block>
         </value>
       </block>
     </statement>
