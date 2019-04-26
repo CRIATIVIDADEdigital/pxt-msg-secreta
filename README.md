@@ -1,11 +1,13 @@
-# Seu Nome no Micro:bit
-Este programa faz com que o Micro:bit apresente no seu painel de LEDs as letras do seu nome. 
+# Mensagem secreta
+Este programa usa o sistema de comunicação sem fio do Micro:bit para enviar uma mensagem para outro Micro:bit. 
 
-## ~avatar
+## Como funciona
+O programa inicia definindo um grupo de rádio.
 
-Qualquer dúvida na construção, use o **link (texto azul)** para abrir o vídeo que apresenta como realizar aquele passo. Para acessar o vídeo com o tutorial completo, use [**este link**](https://youtu.be/3d71vvRIwuY).
-
-## ~
+```blocks
+radio.setGroup(1)
+```
+Todos os Micro:bits configurados no ```||radio:setGroup(1)||``` vão receber o conteúdo das mensagens enviadas.
 
 ## Como funciona
 1. [Baixe o programa](https://youtu.be/3d71vvRIwuY?t=1m16s) no seu computador.
