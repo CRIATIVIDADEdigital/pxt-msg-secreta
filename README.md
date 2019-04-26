@@ -27,15 +27,19 @@ input.onButtonPressed(Button.B, function () {
 ```
 
 ## Como enviar a mensagem secreta
-Para enviar uma mensagem "secreta" é preciso que você e o receptor da mensagem estejam no mesmo canal de comunicação, ou seja, no mesmo grupo de rádio. Você pode escolher um valor de 0 a 255.
-Então, primeiro você deve definir com o grupo que você vai enviar mensagens qual será o código do grupo de comunicação.
+Para enviar uma mensagem "secreta" é preciso que você e o receptor da mensagem estejam no mesmo canal de comunicação, ou seja, no mesmo grupo de rádio. 
+
+Você pode escolher um valor de 0 a 255. Então, primeiro defina com o grupo que você vai enviar mensagens qual será o código do grupo de comunicação.
+
 Por exemplo, se vocês combinarem que o grupo vai ter o número 43, altere o ```||radio:definir grupo do rádio||``` de 1 para 43.
 
 ```blocks
 radio.setGroup(43)
 ```
 
-Depois disso, basta você incluir o texto da mensagem que será enviada. Você pode colocar uma mensagem para o botão A ou botão B do Micro:bit. Por exemplo, para colocar uma nova mensagem no botão A você deverá alterar o comando ```||radio:envia cadeia de caracteres||```
+Depois disso, basta você incluir o texto da mensagem que será enviada. Você pode colocar uma mensagem para o botão A ou botão B do Micro:bit. 
+
+Por exemplo, para colocar uma nova mensagem no botão A você deverá alterar o comando ```||radio:envia cadeia de caracteres||```
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
