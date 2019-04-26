@@ -4,7 +4,7 @@
     <variable type="" id="(h~^mW~^(-a`99~Q#3vf">value</variable>
     <variable type="" id="3B1{s%TEM.NK2mjF3nA~">receivedString</variable>
   </variables>
-  <block type="pxt-on-start" x="6" y="11">
+  <block type="pxt-on-start" x="2" y="0">
     <statement name="HANDLER">
       <block type="radio_set_group">
         <value name="ID">
@@ -16,7 +16,7 @@
       </block>
     </statement>
   </block>
-  <block type="device_button_event" x="4" y="172">
+  <block type="device_button_event" x="0" y="161">
     <field name="NAME">Button.A</field>
     <statement name="HANDLER">
       <block type="radio_datagram_send_string">
@@ -37,7 +37,7 @@
       </block>
     </statement>
   </block>
-  <block type="device_button_event" x="6" y="377">
+  <block type="device_button_event" x="2" y="366">
     <field name="NAME">Button.B</field>
     <statement name="HANDLER">
       <block type="radio_datagram_send_string">
@@ -58,7 +58,7 @@
       </block>
     </statement>
   </block>
-  <block type="radio_on_string" x="6" y="579">
+  <block type="radio_on_string" x="2" y="568">
     <field name="HANDLER_receivedString" id="3B1{s%TEM.NK2mjF3nA~" variabletype="">receivedString</field>
     <statement name="HANDLER">
       <block type="device_print_message">
