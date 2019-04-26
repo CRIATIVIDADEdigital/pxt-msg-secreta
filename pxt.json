@@ -1,5 +1,5 @@
 {
-    "name": "pxt-send",
+    "name": "pxt-enviar",
     "version": "0.0.0",
     "description": "",
     "dependencies": {
@@ -14,6 +14,5 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": false,
-    "additionalFilePaths": []
+    "public": false
 }
